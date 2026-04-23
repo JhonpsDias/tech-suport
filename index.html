@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Suporte | LVL UP Em seu PC</title>
+    <title>Tech Suporte | LVL UP no seu PC</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -17,18 +17,14 @@
         <div class="selection-menu">
             <div class="menu-option">
                 <p class="helper-text">Você já é cliente?</p>
-                <button id="btn-entrar" class="btn-gamer login-theme" onclick="openModal('login')">
-                    Entrar no Jogo
-                </button>
+                <button class="btn-gamer login-theme" onclick="openModal('login')">Entrar no Jogo</button>
             </div>
 
             <div class="divider-yellow"></div>
 
             <div class="menu-option">
                 <p class="helper-text">Você ainda não é um cliente?</p>
-                <button id="btn-novo" class="btn-gamer signup-theme" onclick="openModal('signup')">
-                    Novo Jogo
-                </button>
+                <button class="btn-gamer signup-theme" onclick="openModal('signup')">Novo Jogo</button>
             </div>
         </div>
     </div>
@@ -36,28 +32,60 @@
     <div id="auth-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 id="modal-title" class="orbitron">Login ou Cadastro</h2>
             
-            <div id="form-container">
-                </div>
+            <div id="login-form" class="auth-form">
+                <h2 class="orbitron">LOGIN</h2>
+                <input type="text" placeholder="Nome de usuário ou Email" class="game-input">
+                <input type="password" placeholder="Senha" class="game-input">
+                <button class="btn-action">ENTRAR</button>
+            </div>
+
+            <div id="signup-form" class="auth-form" style="display: none;">
+                <h2 class="orbitron">NOVO JOGO</h2>
+                <input type="text" placeholder="Nome Completo" class="game-input">
+                <input type="text" placeholder="Nome de Usuário" class="game-input">
+                <input type="email" placeholder="E-mail" class="game-input">
+                <input type="tel" placeholder="Telefone" class="game-input">
+                <input type="password" placeholder="Senha" class="game-input">
+                <button class="btn-action">CADASTRAR</button>
+            </div>
 
             <div class="google-auth">
+                <p>Ou continue com:</p>
                 <button class="btn-google" onclick="loginComGoogle()">
-                    Entrar com conta Google
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/layout/google.svg" width="18"> Google
                 </button>
             </div>
         </div>
     </div>
 
-    <script src="auth.js" type="module"></script>
     <script>
-        // Funções simples de interface (abrir/fechar modal)
         function openModal(type) {
-            document.getElementById('auth-modal').style.display = 'flex';
-            // A lógica de preencher os inputs faremos no próximo passo
+            const modal = document.getElementById('auth-modal');
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+
+            modal.style.display = 'flex';
+
+            if (type === 'login') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }
         }
+
         function closeModal() {
             document.getElementById('auth-modal').style.display = 'none';
+        }
+
+        // Fecha o modal se clicar fora do quadrado
+        window.onclick = function(event) {
+            const modal = document.getElementById('auth-modal');
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     </script>
 </body>
