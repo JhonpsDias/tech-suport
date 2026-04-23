@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Suporte | Iniciar Missão</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="entry-page">
 
+    <div class="main-container">
+        <div class="logo-section">
+            <h1 class="orbitron">TECH SUPORT 🚀</h1>
+        </div>
+
+        <div class="selection-menu">
+            <div class="menu-option">
+                <p class="helper-text">Você já é cliente?</p>
+                <button id="btn-entrar" class="btn-gamer login-theme" onclick="openModal('login')">
+                    Entrar no Jogo
+                </button>
+            </div>
+
+            <div class="divider-yellow"></div>
+
+            <div class="menu-option">
+                <p class="helper-text">Você ainda não é um cliente?</p>
+                <button id="btn-novo" class="btn-gamer signup-theme" onclick="openModal('signup')">
+                    Novo Jogo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title" class="orbitron">Login ou Cadastro</h2>
+            
+            <div id="form-container">
+                </div>
+
+            <div class="google-auth">
+                <button class="btn-google" onclick="loginComGoogle()">
+                    Entrar com conta Google
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js" type="module"></script>
+    <script>
+        // Funções simples de interface (abrir/fechar modal)
+        function openModal(type) {
+            document.getElementById('auth-modal').style.display = 'flex';
+            // A lógica de preencher os inputs faremos no próximo passo
+        }
+        function closeModal() {
+            document.getElementById('auth-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
