@@ -1,1 +1,17 @@
-body { background-color: red !important; }
+/* Adicione isso ao seu style.css atual */
+
+.auth-form {
+    width: 100%;
+}
+
+.auth-form h2 {
+    margin-bottom: 20px;
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.google-auth p {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 10px;
+}
